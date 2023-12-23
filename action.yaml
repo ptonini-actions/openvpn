@@ -18,5 +18,5 @@ runs:
       shell: bash
     - run: sudo systemctl start openvpn-client@client || (journalctl -xeu openvpn-client@client && exit 1)
       shell: bash
-    - run: sudo traceroute -m 2 -T $(echo "${{ inputs.validation_addr }}"  | sed -e 's|^[^/]*//||' -e 's|/.*$||')
+    - run: sudo traceroute -m 2 -T ${{ inputs.validation_addr }}
       shell: bash
